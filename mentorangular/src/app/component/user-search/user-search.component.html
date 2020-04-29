@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/user-notifications">Notifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/user-search">Search Trainings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user-curtrainings">Current Trainings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/user-comptrainings">Completed Trainings</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-8" style="background-color:lavenderblush;">
+            <form [formGroup]="searchForm" class="form-inline" (ngSubmit)="onSubmit(searchForm.value)">
+                <label for=" keyword">Technlogy:</label>
+                <input type="text" class="form-control" id="keyword" required formControlName="keyword">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Mentor</th>
+                        <th>Skill Name</th>
+                        <th>Years Of Experience</th>
+                        <th>Total Delivered</th>
+                        <th>Technology</th>
+                        <!-- <th>Fee Charged</th> -->
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items">
+                        <td><span>{{item.name}}</span></td>
+                        <td><span>{{item.skillName}}</span></td>
+                        <td><span>{{item.experience}}</span></td>
+                        <td><span>{{item.totalDelivered}}</span></td>
+                        <td><span>{{item.technology}}</span></td>
+                        <!-- <td><span>{{mentor.feeCharged}}</span></td> -->
+                        <td><button type="button" class="btn btn-primary" (click)="onProposal(item)">Proposal</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

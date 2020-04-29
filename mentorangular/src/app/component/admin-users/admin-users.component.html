@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-technologies">Technologies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin-users">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-payments">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-parameters">Parameters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-8" style="background-color:lavenderblush;">
+            <p>Users and Mentors Management</p>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of items">
+                        <td><span>{{user.id}}</span></td>
+                        <td><span>{{user.name}}</span></td>
+                        <td><span>{{user.role}}</span></td>
+                        <td><span>{{user.status}}</span></td>
+                        <td><button class="btn btn-danger" type="button"
+                                (click)="onBlock(user)">Block</button>&nbsp;&nbsp;
+                            <button class="btn btn-success" type="button" (click)="onUnBlock(user)">Unblock</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

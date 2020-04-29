@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-technologies">Technologies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-users">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-payments">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin-parameters">Parameters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-8" style="background-color:lavenderblush;">
+            <p>Parameters Management</p>
+            <div [hidden]="submitted">
+                <form [formGroup]="paraForm" (ngSubmit)="onSubmit(paraForm.value)">
+                    <div class="form-group">
+                        <label for="commission">Payment Commission percentage:</label>
+                        <input class="form-control" type="text" id="commission" formControlName="commission">
+                    </div>
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </form>
+            </div>
+            <div [hidden]="!submitted">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Payment Commission Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let para of items">
+                            <td><span>{{para.id}}</span></td>
+                            <td><span>{{para.perCommissionPayment}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-primary" type="button" (click)="onUpdate()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>

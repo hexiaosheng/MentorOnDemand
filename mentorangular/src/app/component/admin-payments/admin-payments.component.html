@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-technologies">Technologies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-users">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/admin-payments">Payments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-parameters">Parameters</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-8" style="background-color:lavenderblush;">
+            <p>Payments Management</p>
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User Name</th>
+                        <th>Mentor Name</th>
+                        <th>Training</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let payment of items">
+                        <td><span>{{payment.id}}</span></td>
+                        <td><span>{{payment.userName}}</span></td>
+                        <td><span>{{payment.mentorName}}</span></td>
+                        <td><span>{{payment.trainingName}}</span></td>
+                        <td><span>{{payment.amount}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
